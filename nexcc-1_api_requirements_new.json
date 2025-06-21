@@ -1,0 +1,298 @@
+```json
+[
+  {
+    "scenerioId": "NEXCC-1-SCE-001-Agent Login",
+    "jiraid": "NEXCC-1",
+    "type": "API",
+    "title": "Agent Login and Authentication",
+    "description": "Verify that agents can successfully log in via the API to access the system and perform sales-related actions. This ensures secure access and proper identification of agents for commission tracking.",
+    "acceptanceCriteria": [
+      "Given an agent has valid credentials, when the agent logs in via /API/auth/login, then a valid token, user.id, and user.name are returned.",
+      "Given a valid token is received, when the agent attempts to access other API endpoints, then the agent is authorized to proceed.",
+      "Given an agent has invalid credentials, when the agent attempts to log in via /API/auth/login, then an appropriate error message is returned, and access is denied."
+    ],
+    "attachmentsAnalysis": {
+      "technicalSummary": [
+        {
+          "method": "POST",
+          "path": "/API/auth/login",
+          "purpose": "Authenticate an agent and provide a token for subsequent API calls.",
+          "keyInputs": [
+            "username",
+            "password"
+          ],
+          "successCodes": [
+            200
+          ],
+          "authRequired": "No"
+        }
+      ],
+      "extractedLinks": [
+        "http://13.49.29.196:5000/api-docs/",
+        "http://13.49.29.196:5000/swagger.json"
+      ]
+    },
+    "traceability": {
+      "epic": "Commission Compass API Flow",
+      "module": "Authentication",
+      "dependencies": []
+    },
+    "confidenceScore": {
+      "level": "High",
+      "reasoning": "Clear acceptance criteria directly derived from the user story and Swagger documentation."
+    }
+  },
+  {
+    "scenerioId": "NEXCC-1-SCE-002-Product Selection",
+    "jiraid": "NEXCC-1",
+    "type": "API",
+    "title": "Agent Product Search and Selection",
+    "description": "Ensure agents can search for and select products via the API to create sales. This guarantees that agents can easily access the product catalog and use the selected product for sale creation.",
+    "acceptanceCriteria": [
+      "Given a valid token, when the agent searches for a product via /API/product, then the product details (id and name) are returned.",
+      "Given a valid product id, when the agent attempts to select a product, then the system retrieves the correct product details.",
+      "Given an invalid token, when the agent attempts to search for a product via /API/product, then an appropriate error message is returned, and access is denied."
+    ],
+    "attachmentsAnalysis": {
+      "technicalSummary": [
+        {
+          "method": "GET",
+          "path": "/API/product",
+          "purpose": "Allow an agent to search for products and retrieve product details.",
+          "keyInputs": [
+            "search_term"
+          ],
+          "successCodes": [
+            200
+          ],
+          "authRequired": "Yes"
+        }
+      ],
+      "extractedLinks": [
+        "http://13.49.29.196:5000/api-docs/",
+        "http://13.49.29.196:5000/swagger.json"
+      ]
+    },
+    "traceability": {
+      "epic": "Commission Compass API Flow",
+      "module": "Product Catalog",
+      "dependencies": []
+    },
+    "confidenceScore": {
+      "level": "High",
+      "reasoning": "Well-defined acceptance criteria aligned with the user story and API documentation."
+    }
+  },
+  {
+    "scenerioId": "NEXCC-1-SCE-003-Sale Creation",
+    "jiraid": "NEXCC-1",
+    "type": "API",
+    "title": "Agent Sale Creation and Status Validation",
+    "description": "Verify that agents can create sales via the API and that the initial status of the sale is correctly set to 'pending'. This ensures accurate tracking of sales from creation to commission approval.",
+    "acceptanceCriteria": [
+      "Given a valid product & agent details (productId, productName, agentId, agentName), when the agent creates a sale via /API/sale, then a sale id is returned.",
+      "Given a sale is created, when the sale status is checked, then the status is 'pending'.",
+      "Given invalid product or agent details, when the agent attempts to create a sale via /API/sale, then an appropriate error message is returned, and the sale is not created."
+    ],
+    "attachmentsAnalysis": {
+      "technicalSummary": [
+        {
+          "method": "POST",
+          "path": "/API/sale",
+          "purpose": "Create a new sale record with agent and product details.",
+          "keyInputs": [
+            "productId",
+            "productName",
+            "agentId",
+            "agentName",
+            "quantity",
+            "totalAmount",
+            "saleDate",
+            "policyStatus"
+          ],
+          "successCodes": [
+            201
+          ],
+          "authRequired": "Yes"
+        }
+      ],
+      "extractedLinks": [
+        "http://13.49.29.196:5000/api-docs/",
+        "http://13.49.29.196:5000/swagger.json"
+      ]
+    },
+    "traceability": {
+      "epic": "Commission Compass API Flow",
+      "module": "Sale Management",
+      "dependencies": []
+    },
+    "confidenceScore": {
+      "level": "High",
+      "reasoning": "Clear acceptance criteria derived from the user story, closely aligned with the API documentation."
+    }
+  },
+  {
+    "scenerioId": "NEXCC-1-SCE-004-Admin Login",
+    "jiraid": "NEXCC-1",
+    "type": "API",
+    "title": "Admin Login and Authentication",
+    "description": "Ensure that admins can successfully log in via the API to access the system and process commissions. This guarantees secure access and proper identification of admins for commission management.",
+    "acceptanceCriteria": [
+      "Given an admin has valid credentials, when the admin logs in via /API/auth/login, then a valid token is returned.",
+      "Given a valid token is received, when the admin attempts to access other API endpoints, then the admin is authorized to proceed.",
+      "Given an admin has invalid credentials, when the admin attempts to log in via /API/auth/login, then an appropriate error message is returned, and access is denied."
+    ],
+    "attachmentsAnalysis": {
+      "technicalSummary": [
+        {
+          "method": "POST",
+          "path": "/API/auth/login",
+          "purpose": "Authenticate an admin and provide a token for subsequent API calls.",
+          "keyInputs": [
+            "username",
+            "password"
+          ],
+          "successCodes": [
+            200
+          ],
+          "authRequired": "No"
+        }
+      ],
+      "extractedLinks": [
+        "http://13.49.29.196:5000/api-docs/",
+        "http://13.49.29.196:5000/swagger.json"
+      ]
+    },
+    "traceability": {
+      "epic": "Commission Compass API Flow",
+      "module": "Authentication",
+      "dependencies": []
+    },
+    "confidenceScore": {
+      "level": "High",
+      "reasoning": "Clearly defined acceptance criteria directly derived from the user story and Swagger documentation."
+    }
+  },
+  {
+    "scenerioId": "NEXCC-1-SCE-005-Commission Processing",
+    "jiraid": "NEXCC-1",
+    "type": "API",
+    "title": "Admin Commission Processing and Calculation",
+    "description": "Ensure admins can process commissions for a given sale via the API, and that the commission status is correctly updated to 'calculated'. This guarantees that commissions can be accurately calculated and tracked.",
+    "acceptanceCriteria": [
+      "Given a valid Sale ID, when the admin processes the commission via /API/sales-commissions/[id]/process, then a Commission ID is returned, and the commission status is set to 'calculated'.",
+      "Given an invalid Sale ID, when the admin attempts to process the commission, then an appropriate error message is returned, and the commission is not processed.",
+      "Given a commission is successfully processed, when the commission details are retrieved, then the commission status is 'calculated'."
+    ],
+    "attachmentsAnalysis": {
+      "technicalSummary": [
+        {
+          "method": "POST",
+          "path": "/API/sales-commissions/[id]/process",
+          "purpose": "Process the commission for a given sale and set the commission status to 'calculated'.",
+          "keyInputs": [
+            "id"
+          ],
+          "successCodes": [
+            200
+          ],
+          "authRequired": "Yes"
+        }
+      ],
+      "extractedLinks": [
+        "http://13.49.29.196:5000/api-docs/",
+        "http://13.49.29.196:5000/swagger.json"
+      ]
+    },
+    "traceability": {
+      "epic": "Commission Compass API Flow",
+      "module": "Commission Calculation",
+      "dependencies": []
+    },
+    "confidenceScore": {
+      "level": "High",
+      "reasoning": "Well-defined acceptance criteria aligned with the user story and API documentation."
+    }
+  },
+  {
+    "scenerioId": "NEXCC-1-SCE-006-Commission Approval",
+    "jiraid": "NEXCC-1",
+    "type": "API",
+    "title": "Admin Commission Approval",
+    "description": "Verify that admins can approve commissions via the API, and that the commission status is correctly updated to 'approved'. This ensures that commissions can be finalized and tracked accurately.",
+    "acceptanceCriteria": [
+      "Given a valid commission.id, when the admin approves the commission via /API/commissions/[commission.id]/status, then the commission status is updated to 'approved'.",
+      "Given an invalid commission.id, when the admin attempts to approve the commission, then an appropriate error message is returned, and the commission is not approved.",
+      "Given a commission is successfully approved, when the commission details are retrieved, then the commission status is 'approved'."
+    ],
+    "attachmentsAnalysis": {
+      "technicalSummary": [
+        {
+          "method": "PUT",
+          "path": "/API/commissions/[commission.id]/status",
+          "purpose": "Approve a commission and update its status to 'approved'.",
+          "keyInputs": [
+            "commission.id"
+          ],
+          "successCodes": [
+            200
+          ],
+          "authRequired": "Yes"
+        }
+      ],
+      "extractedLinks": [
+        "http://13.49.29.196:5000/api-docs/",
+        "http://13.49.29.196:5000/swagger.json"
+      ]
+    },
+    "traceability": {
+      "epic": "Commission Compass API Flow",
+      "module": "Commission Approval",
+      "dependencies": []
+    },
+    "confidenceScore": {
+      "level": "High",
+      "reasoning": "Clear acceptance criteria derived from the user story, closely aligned with the API documentation."
+    }
+  },
+  {
+    "scenerioId": "NEXCC-1-SCE-007-Agent Commission Validation",
+    "jiraid": "NEXCC-1",
+    "type": "API",
+    "title": "Agent Validation of Approved Commission",
+    "description": "Ensure agents can view their approved commissions via the API and validate the commission amount for the product sold. This guarantees transparency and allows agents to verify the accuracy of their commissions.",
+    "acceptanceCriteria": [
+      "Given the agent logs in again and has a valid token, when the agent views commissions via /API/commissions, then the agent can see the approved commission and validate the commission amount for the product sold.",
+      "Given a valid token, when the agent views commissions, then the approved commissions are displayed with accurate details.",
+      "Given an invalid token, when the agent attempts to view commissions via /API/commissions, then an appropriate error message is returned, and access is denied."
+    ],
+    "attachmentsAnalysis": {
+      "technicalSummary": [
+        {
+          "method": "GET",
+          "path": "/API/commissions",
+          "purpose": "Allow agents to view their approved commissions and validate the amounts.",
+          "keyInputs": [],
+          "successCodes": [
+            200
+          ],
+          "authRequired": "Yes"
+        }
+      ],
+      "extractedLinks": [
+        "http://13.49.29.196:5000/api-docs/",
+        "http://13.49.29.196:5000/swagger.json"
+      ]
+    },
+    "traceability": {
+      "epic": "Commission Compass API Flow",
+      "module": "Commission Viewing",
+      "dependencies": []
+    },
+    "confidenceScore": {
+      "level": "High",
+      "reasoning": "Well-defined acceptance criteria aligned with the user story and API documentation."
+    }
+  }
+]
+```
