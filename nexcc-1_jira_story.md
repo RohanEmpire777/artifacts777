@@ -1,8 +1,76 @@
-{
-  "title": "Extracted from story",
-  "acceptance_criteria": "```json\n{\n  \"story_title\": \"Commission Compass \u2013 End-to-End API Flow for Agent Sale and Commission Approval\",\n  \"acceptance_criteria\": [\n    \"Agent Login & Product Selection: Given an agent has valid credentials, when the agent logs in via /API/auth/login, then extract the token, user.id, user.name for subsequent API calls. Given a valid token, when the agent searches a product via /API/product, then extract the product details i.e., id & name for Sale Creation\",\n    \"Sale Creation & Status Validation: Given a valid product & agent details like productId=id, productName=name, agentId=user.id, agentName=user.name extracted from previous steps, when the agent creates a sale via /API/sale, then extract the sale id i.e., id, and verify the sale status is set to \\\"pending\\\".\",\n    \"Admin Login & Commission Processing: Given an admin has valid credentials, when the admin logs in via /API/auth/login, then a token is returned for subsequent API calls. Given a valid Sale ID, when the admin processes the commission via /API/sales-commissions/[id]/process, then a Commission ID i.e commission.id is returned, and the commission status is set to \\\"calculated\\\".\",\n    \"Commission Approval: Given a valid commission.id, when the admin approves the commission via /API/commissions/[commission.id]/status, then the commission status is updated to \\\"approved\\\".\",\n    \"Agent Validation of Approved Commission: Given the agent logs in again and has a valid token, when the agent views commissions via /API/commissions, then the agent can see the approved commission and validate the commission amount for the product sold.\"\n  ],\n  \"technical_requirements\": [\n    \"Implement API endpoints for agent login (/API/auth/login)\",\n    \"Implement API endpoints for product search (/API/product)\",\n    \"Implement API endpoints for sale creation (/API/sale)\",\n    \"Implement API endpoints for admin login (/API/auth/login)\",\n    \"Implement API endpoints for commission processing (/API/sales-commissions/[id]/process)\",\n    \"Implement API endpoints for commission approval (/API/commissions/[commission.id]/status)\",\n    \"Implement API endpoints for agent commission viewing (/API/commissions)\",\n    \"Authentication and authorization for agents and admins.\",\n    \"Database to store agent, admin, product, sale, and commission data.\",\n    \"Commission calculation logic.\",\n    \"Status management for sales and commissions (pending, calculated, approved).\",\n    \"Logging and auditing capabilities.\",\n    \"Ensure API robustness and transparency.\"\n  ],\n  \"estimated_complexity\": \"High\",\n  \"dependencies\": [\n    \"Authentication and authorization service.\",\n    \"Product catalog API.\",\n    \"Database for storing sales and commission data.\",\n    \"Access to the API endpoints specified in the swagger UI\"\n  ],\n  \"suggested_implementation_approach\": [\n    \"1. Define API contracts (request/response structures) for each endpoint.\",\n    \"2. Implement authentication and authorization mechanisms for agents and admins.\",\n    \"3. Develop the API endpoints for each step in the flow (agent login, product search, sale creation, admin login, commission processing, commission approval, agent commission viewing).\",\n    \"4. Implement the business logic for commission calculation.\",\n    \"5. Integrate with the product catalog API to retrieve product details.\",\n    \"6. Implement data persistence using a database.\",\n    \"7. Implement comprehensive logging and auditing.\",\n    \"8. Write unit and integration tests for each API endpoint.\",\n    \"9. Test the end-to-end flow thoroughly.\",\n    \"10. Deploy the API to a suitable environment.\"\n  ]\n}\n```",
-  "technical_requirements": "See response above",
-  "complexity": "Medium",
-  "dependencies": "To be determined",
-  "implementation": "```json\n{\n  \"story_title\": \"Commission Compass \u2013 End-to-End API Flow for Agent Sale and Commission Approval\",\n  \"acceptance_criteria\": [\n    \"Agent Login & Product Selection: Given an agent has valid credentials, when the agent logs in via /API/auth/login, then extract the token, user.id, user.name for subsequent API calls. Given a valid token, when the agent searches a product via /API/product, then extract the product details i.e., id & name for Sale Creation\",\n    \"Sale Creation & Status Validation: Given a valid product & agent details like productId=id, productName=name, agentId=user.id, agentName=user.name extracted from previous steps, when the agent creates a sale via /API/sale, then extract the sale id i.e., id, and verify the sale status is set to \\\"pending\\\".\",\n    \"Admin Login & Commission Processing: Given an admin has valid credentials, when the admin logs in via /API/auth/login, then a token is returned for subsequent API calls. Given a valid Sale ID, when the admin processes the commission via /API/sales-commissions/[id]/process, then a Commission ID i.e commission.id is returned, and the commission status is set to \\\"calculated\\\".\",\n    \"Commission Approval: Given a valid commission.id, when the admin approves the commission via /API/commissions/[commission.id]/status, then the commission status is updated to \\\"approved\\\".\",\n    \"Agent Validation of Approved Commission: Given the agent logs in again and has a valid token, when the agent views commissions via /API/commissions, then the agent can see the approved commission and validate the commission amount for the product sold.\"\n  ],\n  \"technical_requirements\": [\n    \"Implement API endpoints for agent login (/API/auth/login)\",\n    \"Implement API endpoints for product search (/API/product)\",\n    \"Implement API endpoints for sale creation (/API/sale)\",\n    \"Implement API endpoints for admin login (/API/auth/login)\",\n    \"Implement API endpoints for commission processing (/API/sales-commissions/[id]/process)\",\n    \"Implement API endpoints for commission approval (/API/commissions/[commission.id]/status)\",\n    \"Implement API endpoints for agent commission viewing (/API/commissions)\",\n    \"Authentication and authorization for agents and admins.\",\n    \"Database to store agent, admin, product, sale, and commission data.\",\n    \"Commission calculation logic.\",\n    \"Status management for sales and commissions (pending, calculated, approved).\",\n    \"Logging and auditing capabilities.\",\n    \"Ensure API robustness and transparency.\"\n  ],\n  \"estimated_complexity\": \"High\",\n  \"dependencies\": [\n    \"Authentication and authorization service.\",\n    \"Product catalog API.\",\n    \"Database for storing sales and commission data.\",\n    \"Access to the API endpoints specified in the swagger UI\"\n  ],\n  \"suggested_implementation_approach\": [\n    \"1. Define API contracts (request/response structures) for each endpoint.\",\n    \"2. Implement authentication and authorization mechanisms for agents and admins.\",\n    \"3. Develop the API endpoints for each step in the flow (agent login, product search, sale creation, admin login, commission processing, commission approval, agent commission viewing).\",\n    \"4. Implement the business logic for commission calculation.\",\n    \"5. Integrate with the product catalog API to retrieve product details.\",\n    \"6. Implement data persistence using a database.\",\n    \"7. Implement comprehensive logging and auditing.\",\n    \"8. Write unit and integration tests for each API endpoint.\",\n    \"9. Test the end-to-end flow thoroughly.\",\n    \"10. Deploy the API to a suitable environment.\"\n  ]\n}\n```"
-}
+## nexcc-1: commission compass – end-to-end api flow for agent sale and commission approval
+
+**summary:** commission compass – end-to-end api flow for agent sale and commission approval
+
+**status:** to do
+
+**assignee:** dinesh
+
+**reporter:** dinesh
+
+**created:** 2025-06-04t20:07:30.163+0530
+
+**updated:** 2025-06-10t10:10:24.749+0530
+
+**description:**
+
+as a product manager, i want commission compass to support an end-to-end api-driven flow where an agent logs in, selects a product, creates a sale, and an admin processes and approves the commission, so that the commission lifecycle is seamless, automated, and fully auditable for admins.
+
+**actors:**
+
+*   agent
+*   admin
+
+**scope / ask:**
+
+this story covers the api-driven lifecycle for a single sale, including:
+
+*   agent login and authentication
+*   product search and selection
+*   sale creation and status validation
+*   admin login and authentication
+*   commission processing and calculation
+*   commission approval workflow
+*   agent validation of approved commission
+
+the goal is to ensure the entire process, from sale to commission approval, is api-driven, robust, and transparent for both agents and admins.
+
+**api resources:**
+
+swagger ui - [http://13.49.29.196:5000/api-docs/](http://13.49.29.196:5000/api-docs/)
+
+swagger json - [13.49.29.196:5000/swagger.json](http://13.49.29.196:5000/swagger.json)
+
+**acceptance criteria:**
+
+*   **agent login & product selection**
+    *   given an agent has valid credentials,
+    *   when the agent logs in via `/api/auth/login`,
+    *   then extract the token, user.id, user.name for subsequent api calls.
+    *   given a valid token,
+    *   when the agent searches a product via `/api/product`,
+    *   then extract the product details i.e., id & name for sale creation
+
+*   **sale creation & status validation**
+    *   given a valid product & agent details like productid=id, productname=name, agentid=user.id, agentname=user.name extracted from previous steps
+    *   when the agent creates a sale via `/api/sale`,
+    *   then extract the sale id i.e., id,
+    *   and verify the sale status is set to "pending".
+
+*   **admin login & commission processing**
+    *   given an admin has valid credentials,
+    *   when the admin logs in via `/api/auth/login`,
+    *   then an token is returned for subsequent api calls.
+    *   given a valid sale id,
+    *   when the admin processes the commission via `/api/sales-commissions/[id]/process`,
+    *   then a commission id i.e commission.id is returned, and the commission status is set to "calculated".
+
+*   **commission approval**
+    *   given a valid commission.id,
+    *   when the admin approves the commission via `/api/commissions/[[commission.id]]/status`,
+    *   then the commission status is updated to "approved".
+
+*   **agent validation of approved commission**
+    *   given the agent logs in again and has a valid token,
+    *   when the agent views commissions via `/api/commissions`,
+    *   then the agent can see the approved commission and validate the commission amount for the product sold.
