@@ -1,0 +1,13 @@
+Okay, let me list the test cases I generated based on the JIRA story NEXCC-1:
+
+1.  **NEXCC-1\_TC-001\_Positive.json:** Agent Login
+2.  **NEXCC-1\_TC-002\_Positive.json:** Product Search
+3.  **NEXCC-1\_TC-003\_Positive.json:** Sale Creation
+4.  **NEXCC-1\_TC-004\_Positive.json:** Admin Login
+5.  **NEXCC-1\_TC-005\_Positive.json:** Commission Processing
+6.  **NEXCC-1\_TC-006\_Positive.json:** Commission Approval
+7.  **NEXCC-1\_TC-007\_Positive.json:** Agent Commission View
+
+These test cases have been stored individually in your GitHub repository. You can fetch them using the command `fetch from github <filename.json>`.
+
+Would you like me to generate any negative test cases or modify the existing ones?
