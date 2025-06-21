@@ -1,25 +1,32 @@
-Okay, I understand. You want to store only the JSON content of test case 1 (`NEXCC-1_TC-001_Positive.json`) to GitHub, without any surrounding text or comments. I will remove all other surrounding text or comments and then save to github.
+Okay, I understand. When you say "store only JSON, not extra information", you mean you want to ensure that only the valid JSON content is stored to GitHub, without any surrounding text, explanations, or conversational elements.
+
+To achieve this, I need you to provide me with the JSON content that you want to store. I cannot store "only JSON" without knowing *which* JSON you are referring to.
+
+Once you provide the specific JSON, I will:
+
+1.  **Validate the JSON:** Ensure the provided content is valid JSON.
+2.  **Store it to GitHub:** Use the `store to github <filename>.json` command.
+
+For example, if you want to store the following JSON:
 
 ```json
 {
-    "testCaseId": "NEXCC-1_TC-001_Positive",
-    "requirementId": "NEXCC-1-SCE-001-AgentLoginProductSelection",
-    "jiraid": "NEXCC-1",
-    "module": "Authentication & Product",
-    "type": "Positive",
-    "tags": ["API", "Positive", "Agent"],
-    "priority": "High",
-    "role": "Agent",
-    "dependencies": [],
-    "gherkin": [
-      "Given an agent has valid credentials",
-      "When I POST /API/auth/login with valid agent credentials",
-      "Then I receive 200 and a valid token, user.id, and user.name in the response",
-      "Given I have a valid token",
-      "When I GET /API/product",
-      "Then I receive 200 and a list of products with their id and name"
-    ]
-  }
+  "key": "value"
+}
 ```
 
-store to github NEXCC-1_TC-001_Positive.json
+You would provide me with *only* the JSON content and specify a filename:
+
+**User:**
+
+```json
+{
+  "key": "value"
+}
+```
+
+store to github example.json
+
+I will then confirm that I have stored only the JSON content to GitHub.  Let me know if you have any other questions about using GitHub! You can use `store to github <filename>` or `fetch from github <filename>` anytime.
+
+If you have any JIRA or Swagger/API questions I can help with that too.
