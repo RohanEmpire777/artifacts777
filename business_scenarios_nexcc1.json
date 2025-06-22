@@ -1,296 +1,293 @@
-```tool_code
-print(github.store_file(repo="RohanEmpire777/artifacts777", filename="Business_Scenarios_NEXCC1.json", content='''[
+[
   {
-    "scenerioId": "NEXCC-1-SCE-001-AgentLogin",
-    "jiraid": "NEXCC-1",
-    "type": "API",
-    "title": "Agent Login and Authentication",
-    "description": "Agent logs in using valid credentials to obtain a token for subsequent API calls.",
-    "acceptanceCriteria": [
-      "Given an agent has valid credentials,",
-      "When the agent logs in via /API/auth/login,",
-      "Then extract the token, user.id, user.name for subsequent API calls."
+    "scenerioid": "nexcc-1-sce-001-agentlogin",
+    "jiraid": "nexcc-1",
+    "type": "api",
+    "title": "agent login and authentication",
+    "description": "agent logs in using valid credentials to obtain a token for subsequent api calls.",
+    "acceptancecriteria": [
+      "given an agent has valid credentials,",
+      "when the agent logs in via /api/auth/login,",
+      "then extract the token, user.id, user.name for subsequent api calls."
     ],
-    "attachmentsAnalysis": {
-      "technicalSummary": [
+    "attachmentsanalysis": {
+      "technicalsummary": [
         {
-          "method": "POST",
+          "method": "post",
           "path": "/api/auth/login",
-          "purpose": "Authenticate user (Agent)",
-          "keyInputs": [
+          "purpose": "authenticate user (agent)",
+          "keyinputs": [
             "email",
             "password"
           ],
-          "successCodes": [
+          "successcodes": [
             200
           ],
-          "authRequired": false
+          "authrequired": false
         }
       ],
-      "extractedLinks": [
+      "extractedlinks": [
         "http://13.49.29.196:5000/api-docs/",
         "http://13.49.29.196:5000/swagger.json"
       ]
     },
     "traceability": {
-      "epic": "Commission Compass – End-to-End API Flow",
-      "module": "Authentication",
+      "epic": "commission compass – end-to-end api flow",
+      "module": "authentication",
       "dependencies": []
     },
-    "confidenceScore": {
-      "level": "High",
-      "reasoning": "Directly derived from JIRA story acceptance criteria and Swagger API documentation."
+    "confidencescore": {
+      "level": "high",
+      "reasoning": "directly derived from jira story acceptance criteria and swagger api documentation."
     }
   },
   {
-    "scenerioId": "NEXCC-1-SCE-002-ProductSearch",
-    "jiraid": "NEXCC-1",
-    "type": "API",
-    "title": "Product Search and Selection",
-    "description": "Agent searches for a product using a valid token and retrieves product details.",
-    "acceptanceCriteria": [
-      "Given a valid token,",
-      "When the agent searches a product via /API/product,",
-      "Then extract the product details i.e., id & name for Sale Creation."
+    "scenerioid": "nexcc-1-sce-002-productsearch",
+    "jiraid": "nexcc-1",
+    "type": "api",
+    "title": "product search and selection",
+    "description": "agent searches for a product using a valid token and retrieves product details.",
+    "acceptancecriteria": [
+      "given a valid token,",
+      "when the agent searches a product via /api/product,",
+      "then extract the product details i.e., id & name for sale creation."
     ],
-    "attachmentsAnalysis": {
-      "technicalSummary": [
+    "attachmentsanalysis": {
+      "technicalsummary": [
         {
-          "method": "GET",
+          "method": "get",
           "path": "/api/products",
-          "purpose": "Get all products",
-          "keyInputs": [],
-          "successCodes": [
+          "purpose": "get all products",
+          "keyinputs": [],
+          "successcodes": [
             200
           ],
-          "authRequired": true
+          "authrequired": true
         }
       ],
-      "extractedLinks": [
+      "extractedlinks": [
         "http://13.49.29.196:5000/api-docs/",
         "http://13.49.29.196:5000/swagger.json"
       ]
     },
     "traceability": {
-      "epic": "Commission Compass – End-to-End API Flow",
-      "module": "Product",
+      "epic": "commission compass – end-to-end api flow",
+      "module": "product",
       "dependencies": []
     },
-    "confidenceScore": {
-      "level": "High",
-      "reasoning": "Directly derived from JIRA story acceptance criteria and Swagger API documentation."
+    "confidencescore": {
+      "level": "high",
+      "reasoning": "directly derived from jira story acceptance criteria and swagger api documentation."
     }
   },
   {
-    "scenerioId": "NEXCC-1-SCE-003-SaleCreation",
-    "jiraid": "NEXCC-1",
-    "type": "API",
-    "title": "Sale Creation and Status Validation",
-    "description": "Agent creates a sale with valid product and agent details, and the sale status is verified as 'pending'.",
-    "acceptanceCriteria": [
-      "Given a valid product & agent details like productId=id, productName=name, agentId=user.id, agentName=user.name extracted from previous steps",
-      "When the agent creates a sale via /API/sale,",
-      "Then extract the sale id i.e., id,",
-      "And verify the sale status is set to \"pending\"."
+    "scenerioid": "nexcc-1-sce-003-salecreation",
+    "jiraid": "nexcc-1",
+    "type": "api",
+    "title": "sale creation and status validation",
+    "description": "agent creates a sale with valid product and agent details, and the sale status is verified as 'pending'.",
+    "acceptancecriteria": [
+      "given a valid product & agent details like productid=id, productname=name, agentid=user.id, agentname=user.name extracted from previous steps",
+      "when the agent creates a sale via /api/sale,",
+      "then extract the sale id i.e., id,",
+      "and verify the sale status is set to \"pending\"."
     ],
-    "attachmentsAnalysis": {
-      "technicalSummary": [
+    "attachmentsanalysis": {
+      "technicalsummary": [
         {
-          "method": "POST",
+          "method": "post",
           "path": "/api/sales",
-          "purpose": "Create a new sale",
-          "keyInputs": [
-            "productId",
-            "productName",
-            "agentId",
-            "agentName",
+          "purpose": "create a new sale",
+          "keyinputs": [
+            "productid",
+            "productname",
+            "agentid",
+            "agentname",
             "quantity",
-            "totalAmount",
-            "saleDate",
-            "policyStatus"
+            "totalamount",
+            "saledate",
+            "policystatus"
           ],
-          "successCodes": [
+          "successcodes": [
             201
           ],
-          "authRequired": true
+          "authrequired": true
         }
       ],
-      "extractedLinks": [
+      "extractedlinks": [
         "http://13.49.29.196:5000/api-docs/",
         "http://13.49.29.196:5000/swagger.json"
       ]
     },
     "traceability": {
-      "epic": "Commission Compass – End-to-End API Flow",
-      "module": "Sales",
+      "epic": "commission compass – end-to-end api flow",
+      "module": "sales",
       "dependencies": []
     },
-    "confidenceScore": {
-      "level": "High",
-      "reasoning": "Directly derived from JIRA story acceptance criteria and Swagger API documentation."
+    "confidencescore": {
+      "level": "high",
+      "reasoning": "directly derived from jira story acceptance criteria and swagger api documentation."
     }
   },
   {
-    "scenerioId": "NEXCC-1-SCE-004-AdminLogin",
-    "jiraid": "NEXCC-1",
-    "type": "API",
-    "title": "Admin Login and Authentication",
-    "description": "Admin logs in using valid credentials to obtain a token for subsequent API calls.",
-    "acceptanceCriteria": [
-      "Given an admin has valid credentials,",
-      "When the admin logs in via /API/auth/login,",
-      "Then an token is returned for subsequent API calls."
+    "scenerioid": "nexcc-1-sce-004-adminlogin",
+    "jiraid": "nexcc-1",
+    "type": "api",
+    "title": "admin login and authentication",
+    "description": "admin logs in using valid credentials to obtain a token for subsequent api calls.",
+    "acceptancecriteria": [
+      "given an admin has valid credentials,",
+      "when the admin logs in via /api/auth/login,",
+      "then an token is returned for subsequent api calls."
     ],
-    "attachmentsAnalysis": {
-      "technicalSummary": [
+    "attachmentsanalysis": {
+      "technicalsummary": [
         {
-          "method": "POST",
+          "method": "post",
           "path": "/api/auth/login",
-          "purpose": "Authenticate user (Admin)",
-          "keyInputs": [
+          "purpose": "authenticate user (admin)",
+          "keyinputs": [
             "email",
             "password"
           ],
-          "successCodes": [
+          "successcodes": [
             200
           ],
-          "authRequired": false
+          "authrequired": false
         }
       ],
-      "extractedLinks": [
+      "extractedlinks": [
         "http://13.49.29.196:5000/api-docs/",
         "http://13.49.29.196:5000/swagger.json"
       ]
     },
     "traceability": {
-      "epic": "Commission Compass – End-to-End API Flow",
-      "module": "Authentication",
+      "epic": "commission compass – end-to-end api flow",
+      "module": "authentication",
       "dependencies": []
     },
-    "confidenceScore": {
-      "level": "High",
-      "reasoning": "Directly derived from JIRA story acceptance criteria and Swagger API documentation."
+    "confidencescore": {
+      "level": "high",
+      "reasoning": "directly derived from jira story acceptance criteria and swagger api documentation."
     }
   },
   {
-    "scenerioId": "NEXCC-1-SCE-005-CommissionProcessing",
-    "jiraid": "NEXCC-1",
-    "type": "API",
-    "title": "Admin Commission Processing",
-    "description": "Admin processes the commission for a given sale ID, and the commission status is set to 'calculated'.",
-    "acceptanceCriteria": [
-      "Given a valid Sale ID,",
-      "When the admin processes the commission via /API/sales-commissions/[id]/process,",
-      "Then a Commission ID i.e commission.id is returned, and the commission status is set to \"calculated\"."
+    "scenerioid": "nexcc-1-sce-005-commissionprocessing",
+    "jiraid": "nexcc-1",
+    "type": "api",
+    "title": "admin commission processing",
+    "description": "admin processes the commission for a given sale id, and the commission status is set to 'calculated'.",
+    "acceptancecriteria": [
+      "given a valid sale id,",
+      "when the admin processes the commission via /api/sales-commissions/[id]/process,",
+      "then a commission id i.e commission.id is returned, and the commission status is set to \"calculated\"."
     ],
-    "attachmentsAnalysis": {
-      "technicalSummary": [
+    "attachmentsanalysis": {
+      "technicalsummary": [
         {
-          "method": "POST",
+          "method": "post",
           "path": "/api/sales-commissions/{id}/process",
-          "purpose": "Process a sale for commission calculation",
-          "keyInputs": [],
-          "successCodes": [
+          "purpose": "process a sale for commission calculation",
+          "keyinputs": [],
+          "successcodes": [
             200
           ],
-          "authRequired": true
+          "authrequired": true
         }
       ],
-      "extractedLinks": [
+      "extractedlinks": [
         "http://13.49.29.196:5000/api-docs/",
         "http://13.49.29.196:5000/swagger.json"
       ]
     },
     "traceability": {
-      "epic": "Commission Compass – End-to-End API Flow",
-      "module": "Commission",
+      "epic": "commission compass – end-to-end api flow",
+      "module": "commission",
       "dependencies": []
     },
-    "confidenceScore": {
-      "level": "High",
-      "reasoning": "Directly derived from JIRA story acceptance criteria and Swagger API documentation."
+    "confidencescore": {
+      "level": "high",
+      "reasoning": "directly derived from jira story acceptance criteria and swagger api documentation."
     }
   },
   {
-    "scenerioId": "NEXCC-1-SCE-006-CommissionApproval",
-    "jiraid": "NEXCC-1",
-    "type": "API",
-    "title": "Commission Approval",
-    "description": "Admin approves the commission, and the commission status is updated to 'approved'.",
-    "acceptanceCriteria": [
-      "Given a valid commission.id,",
-      "When the admin approves the commission via /API/commissions/[commission.id]/status,",
-      "Then the commission status is updated to \"approved\"."
+    "scenerioid": "nexcc-1-sce-006-commissionapproval",
+    "jiraid": "nexcc-1",
+    "type": "api",
+    "title": "commission approval",
+    "description": "admin approves the commission, and the commission status is updated to 'approved'.",
+    "acceptancecriteria": [
+      "given a valid commission.id,",
+      "when the admin approves the commission via /api/commissions/[commission.id]/status,",
+      "then the commission status is updated to \"approved\"."
     ],
-    "attachmentsAnalysis": {
-      "technicalSummary": [
+    "attachmentsanalysis": {
+      "technicalsummary": [
         {
-          "method": "PUT",
+          "method": "put",
           "path": "/api/commissions/{id}/status",
-          "purpose": "Update commission status",
-          "keyInputs": [
+          "purpose": "update commission status",
+          "keyinputs": [
             "status"
           ],
-          "successCodes": [
+          "successcodes": [
             200
           ],
-          "authRequired": true
+          "authrequired": true
         }
       ],
-      "extractedLinks": [
+      "extractedlinks": [
         "http://13.49.29.196:5000/api-docs/",
         "http://13.49.29.196:5000/swagger.json"
       ]
     },
     "traceability": {
-      "epic": "Commission Compass – End-to-End API Flow",
-      "module": "Commission",
+      "epic": "commission compass – end-to-end api flow",
+      "module": "commission",
       "dependencies": []
     },
-    "confidenceScore": {
-      "level": "High",
-      "reasoning": "Directly derived from JIRA story acceptance criteria and Swagger API documentation."
+    "confidencescore": {
+      "level": "high",
+      "reasoning": "directly derived from jira story acceptance criteria and swagger api documentation."
     }
   },
   {
-    "scenerioId": "NEXCC-1-SCE-007-AgentCommissionValidation",
-    "jiraid": "NEXCC-1",
-    "type": "API",
-    "title": "Agent Validation of Approved Commission",
-    "description": "Agent logs in and views commissions to validate the commission amount for the product sold.",
-    "acceptanceCriteria": [
-      "Given the agent logs in again and has a valid token,",
-      "When the agent views commissions via /API/commissions,",
-      "Then the agent can see the approved commission and validate the commission amount for the product sold."
+    "scenerioid": "nexcc-1-sce-007-agentcommissionvalidation",
+    "jiraid": "nexcc-1",
+    "type": "api",
+    "title": "agent validation of approved commission",
+    "description": "agent logs in and views commissions to validate the commission amount for the product sold.",
+    "acceptancecriteria": [
+      "given the agent logs in again and has a valid token,",
+      "when the agent views commissions via /api/commissions,",
+      "then the agent can see the approved commission and validate the commission amount for the product sold."
     ],
-    "attachmentsAnalysis": {
-      "technicalSummary": [
+    "attachmentsanalysis": {
+      "technicalsummary": [
         {
-          "method": "GET",
+          "method": "get",
           "path": "/api/commissions",
-          "purpose": "Get all commissions",
-          "keyInputs": [],
-          "successCodes": [
+          "purpose": "get all commissions",
+          "keyinputs": [],
+          "successcodes": [
             200
           ],
-          "authRequired": true
+          "authrequired": true
         }
       ],
-      "extractedLinks": [
+      "extractedlinks": [
         "http://13.49.29.196:5000/api-docs/",
         "http://13.49.29.196:5000/swagger.json"
       ]
     },
     "traceability": {
-      "epic": "Commission Compass – End-to-End API Flow",
-      "module": "Commission",
+      "epic": "commission compass – end-to-end api flow",
+      "module": "commission",
       "dependencies": []
     },
-    "confidenceScore": {
-      "level": "High",
-      "reasoning": "Directly derived from JIRA story acceptance criteria and Swagger API documentation."
+    "confidencescore": {
+      "level": "high",
+      "reasoning": "directly derived from jira story acceptance criteria and swagger api documentation."
     }
   }
-]'''
-)
-```
+]
