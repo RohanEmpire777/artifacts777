@@ -1,0 +1,75 @@
+Okay, I will generate the business context, scope, and scenarios in JSON format as a QA business analyst, following the structure you provided. I will use the JIRA story and Swagger file you previously provided. I will use placeholders where necessary, as I don't have the complete information to fill every field perfectly.
+
+```json
+[
+  {
+    "scenerioId": "{issue_key}-SCE-001-CreateBasket",
+    "jiraid": "{issue_key}",
+    "type": "API",
+    "title": "Verify successful creation of a Basket",
+    "description": "This scenario verifies that a new basket can be successfully created via the API with valid inputs.",
+    "acceptanceCriteria": [
+      "A new basket is created in the system with the provided details.",
+      "The API returns a 201 Created status code upon successful creation.",
+      "The response body contains the details of the newly created basket, including its ID."
+    ],
+    "attachmentsAnalysis": {
+      "technicalSummary": [
+        {
+          "method": "POST",
+          "path": "/baskets",
+          "purpose": "Create a new Basket to hold trades",
+          "keyInputs": ["targetCollateralValue", "financialPartnerId", "tenantId"],
+          "successCodes": [201],
+          "authRequired": true
+        }
+      ],
+      "extractedLinks": [ "https://... (link to Swagger doc)" ]
+    },
+    "traceability": {
+      "epic": "...",
+      "module": "Basket Management",
+      "dependencies": [ "JIRA-123 (example dependency)" ]
+    },
+    "confidenceScore": {
+      "level": "High",
+      "reasoning": "The API endpoint and required parameters are clearly defined in the Swagger file.  Successful creation is a fundamental function of the Basket Management module."
+    }
+  },
+  {
+    "scenerioId": "{issue_key}-SCE-002-InvalidInput",
+    "jiraid": "{issue_key}",
+    "type": "API",
+    "title": "Verify error handling for invalid input when creating a Basket",
+    "description": "This scenario verifies that the API correctly handles invalid input data during basket creation and returns appropriate error messages.",
+    "acceptanceCriteria": [
+      "The API returns a 400 Bad Request status code when invalid input is provided.",
+      "The response body contains a clear and informative error message indicating the invalid field(s).",
+      "No new basket is created in the system."
+    ],
+    "attachmentsAnalysis": {
+      "technicalSummary": [
+        {
+          "method": "POST",
+          "path": "/baskets",
+          "purpose": "Create a new Basket to hold trades",
+          "keyInputs": ["targetCollateralValue", "financialPartnerId", "tenantId"],
+          "successCodes": [400],
+          "authRequired": true,
+          "errorExamples": ["Invalid targetCollateralValue (e.g., negative value)", "Missing financialPartnerId"]
+        }
+      ],
+      "extractedLinks": [ "https://... (link to Swagger doc)" ]
+    },
+    "traceability": {
+      "epic": "...",
+      "module": "Basket Management",
+      "dependencies": []
+    },
+    "confidenceScore": {
+      "level": "High",
+      "reasoning": "Input validation is a standard requirement for API endpoints. The Swagger file likely defines data types and constraints, making this scenario readily testable."
+    }
+  }
+]
+```
