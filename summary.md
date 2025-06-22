@@ -1,36 +1,36 @@
-```md
-## Summary of JIRA Story (NEXCC-1) and Swagger API
+summary of jira story (nexcc-10000000000) and swagger api
 
-### Business Scenarios:
+### business scenarios:
 
-*   **Agent Sale:** An agent logs into the system, selects a product, and creates a sale via API.
-*   **Commission Processing:** An admin logs in, processes the agent's commission based on the sale, and approves it via API.
-*   **Commission Validation:** The agent logs in again to view and validate the approved commission amount.
+*   **agent sale:** an agent logs into the system, selects a product, and creates a sale via api.
+*   **commission processing:** an admin logs in, processes the agent's commission based on the sale, and approves it via api.
+*   **commission validation:** the agent logs in again to view and validate the approved commission amount.
 
-### Context:
+### context:
 
-The "Commission Compass" aims to create a seamless, automated, and fully auditable end-to-end API flow for agent sales and commission approvals. This involves multiple actors (Agents and Admins) interacting with the system through a series of API calls.  The existing Swagger documentation provides information for accessing the different APIs, but more API definitions may exist beyond what is described in the story.
+the "commission compass" aims to create a seamless, automated, and fully auditable end-to-end api flow for agent sales and commission approvals. this involves multiple actors (agents and admins) interacting with the system through a series of api calls.  the existing swagger documentation provides information for accessing the different apis, but more api definitions may exist beyond what is described in the story.
 
-### Scope:
+### scope:
 
-*   **API-Driven Lifecycle:** Covers the entire process from agent login and product selection to commission approval, all driven by API calls.
-*   **Specific API Endpoints:** Includes specific endpoints such as:
-    *   `/API/auth/login` (Agent and Admin)
-    *   `/API/product` (Product Search)
-    *   `/API/sale` (Sale Creation)
-    *   `/API/sales-commissions/[id]/process` (Commission Processing)
-    *   `/API/commissions/[commission.id]/status` (Commission Approval)
-    *   `/API/commissions` (Agent Commission View)
-*   **Data Validation:** Ensures the entire process is robust and transparent for both agents and admins through API-driven processes.
-*   **Authentication & Authorization:** Implementing authentication and authorization for agents and admins.
+*   **api-driven lifecycle:** covers the entire process from agent login and product selection to commission approval, all driven by api calls.
+*   **specific api endpoints:** includes specific endpoints such as:
+    *   `/api/auth/login` (agent and admin)
+    *   `/api/product` (product search)
+    *   `/api/sale` (sale creation)
+    *   `/api/sales-commissions/[id]/process` (commission processing)
+    *   `/api/commissions/[commission.id]/status` (commission approval)
+    *   `/api/commissions` (agent commission view)
+*   **data validation:** ensures the entire process is robust and transparent for both agents and admins through api-driven processes.
+*   **authentication & authorization:** implementing authentication and authorization for agents and admins.
 
-**API Gateway (Based on Swagger Analysis)**
+**api gateway (based on swagger analysis)**
 
-The NexTurn API Gateway handles creation and modification of sales records, and the agent commission flow documented in the JIRA story, and may require the agent commission flow documented in the JIRA story.
+the nexturn api gateway handles creation and modification of sales records, and the agent commission flow documented in the jira story, and may require the agent commission flow documented in the jira story.
 
-### Scope:
+### scope:
 
-*   **Data Models:** Defines `SaleUpsertPayload` and `SaleUpsertResponse` for sales data.
-*   **Authentication:** Uses JWT Bearer authentication.
-*   **Potential Integrations:** Integrates with product, agent, agency management systems, payment processing, reporting/analytics, CRM, and policy management systems.
-```
+*   **data models:** defines `saleupsertpayload` and `saleupsertresponse` for sales data.
+*   **authentication:** uses jwt bearer authentication.
+*   **potential integrations:** integrates with product, agent, agency management systems, payment processing, reporting/analytics, crm, and policy management systems.
+
+input data
