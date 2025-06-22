@@ -1,151 +1,149 @@
-```json
 [
   {
-    "testCaseId": "NEXCC-1-SCE-001-agentlogin_TC-001_Positive",
-    "requirementId": "NEXCC-1-SCE-001-agentlogin",
-    "jiraid": "NEXCC-1",
-    "module": "Auth",
-    "type": "Positive",
+    "testcaseid": "nexcc-1-sce-001-agentlogin_tc-001_positive",
+    "requirementid": "nexcc-1-sce-001-agentlogin",
+    "jiraid": "nexcc-1",
+    "module": "auth",
+    "type": "positive",
     "tags": [
-      "API",
-      "Positive"
+      "api",
+      "positive"
     ],
-    "priority": "High",
+    "priority": "high",
     "role": "agent",
     "dependencies": [],
     "gherkin": [
-      "Given I have valid agent credentials (email and password)",
-      "When I POST /api/auth/login with my credentials",
-      "Then I receive a 200 OK response with a valid token, user.id, and user.name"
+      "given i have valid agent credentials (email and password)",
+      "when i post /api/auth/login with my credentials",
+      "then i receive a 200 ok response with a valid token, user.id, and user.name"
     ]
   },
   {
-    "testCaseId": "NEXCC-1-SCE-002-productsearch_TC-001_Positive",
-    "requirementId": "NEXCC-1-SCE-002-productsearch",
-    "jiraid": "NEXCC-1",
-    "module": "Products",
-    "type": "Positive",
+    "testcaseid": "nexcc-1-sce-002-productsearch_tc-001_positive",
+    "requirementid": "nexcc-1-sce-002-productsearch",
+    "jiraid": "nexcc-1",
+    "module": "products",
+    "type": "positive",
     "tags": [
-      "API",
-      "Positive"
+      "api",
+      "positive"
     ],
-    "priority": "High",
+    "priority": "high",
     "role": "agent",
     "dependencies": [
-      "NEXCC-1-SCE-001-agentlogin_TC-001_Positive"
+      "nexcc-1-sce-001-agentlogin_tc-001_positive"
     ],
     "gherkin": [
-      "Given I have a valid agent token",
-      "When I GET /api/products with the token in the Authorization header",
-      "Then I receive a 200 OK response with a list of products, including product id and name"
+      "given i have a valid agent token",
+      "when i get /api/products with the token in the authorization header",
+      "then i receive a 200 ok response with a list of products, including product id and name"
     ]
   },
   {
-    "testCaseId": "NEXCC-1-SCE-003-salecreation_TC-001_Positive",
-    "requirementId": "NEXCC-1-SCE-003-salecreation",
-    "jiraid": "NEXCC-1",
-    "module": "Sales",
-    "type": "Positive",
+    "testcaseid": "nexcc-1-sce-003-salecreation_tc-001_positive",
+    "requirementid": "nexcc-1-sce-003-salecreation",
+    "jiraid": "nexcc-1",
+    "module": "sales",
+    "type": "positive",
     "tags": [
-      "API",
-      "Positive"
+      "api",
+      "positive"
     ],
-    "priority": "High",
+    "priority": "high",
     "role": "agent",
     "dependencies": [
-      "NEXCC-1-SCE-001-agentlogin_TC-001_Positive",
-      "NEXCC-1-SCE-002-productsearch_TC-001_Positive"
+      "nexcc-1-sce-001-agentlogin_tc-001_positive",
+      "nexcc-1-sce-002-productsearch_tc-001_positive"
     ],
     "gherkin": [
-      "Given I have a valid agent token, a productId, and productName",
-      "When I POST /api/sales with valid sale data (productId, productName, agentId, agentName, quantity, totalAmount, saleDate, policyStatus) and the token in the Authorization header",
-      "Then I receive a 201 Created response with a sale id and the sale status is 'pending'"
+      "given i have a valid agent token, a productid, and productname",
+      "when i post /api/sales with valid sale data (productid, productname, agentid, agentname, quantity, totalamount, saledate, policystatus) and the token in the authorization header",
+      "then i receive a 201 created response with a sale id and the sale status is 'pending'"
     ]
   },
   {
-    "testCaseId": "NEXCC-1-SCE-004-adminlogin_TC-001_Positive",
-    "requirementId": "NEXCC-1-SCE-004-adminlogin",
-    "jiraid": "NEXCC-1",
-    "module": "Auth",
-    "type": "Positive",
+    "testcaseid": "nexcc-1-sce-004-adminlogin_tc-001_positive",
+    "requirementid": "nexcc-1-sce-004-adminlogin",
+    "jiraid": "nexcc-1",
+    "module": "auth",
+    "type": "positive",
     "tags": [
-      "API",
-      "Positive"
+      "api",
+      "positive"
     ],
-    "priority": "High",
+    "priority": "high",
     "role": "admin",
     "dependencies": [],
     "gherkin": [
-      "Given I have valid admin credentials (email and password)",
-      "When I POST /api/auth/login with my credentials",
-      "Then I receive a 200 OK response with a valid token, user.id, and user.name"
+      "given i have valid admin credentials (email and password)",
+      "when i post /api/auth/login with my credentials",
+      "then i receive a 200 ok response with a valid token, user.id, and user.name"
     ]
   },
   {
-    "testCaseId": "NEXCC-1-SCE-005-commissionprocessing_TC-001_Positive",
-    "requirementId": "NEXCC-1-SCE-005-commissionprocessing",
-    "jiraid": "NEXCC-1",
-    "module": "SalesCommissions",
-    "type": "Positive",
+    "testcaseid": "nexcc-1-sce-005-commissionprocessing_tc-001_positive",
+    "requirementid": "nexcc-1-sce-005-commissionprocessing",
+    "jiraid": "nexcc-1",
+    "module": "salescommissions",
+    "type": "positive",
     "tags": [
-      "API",
-      "Positive"
+      "api",
+      "positive"
     ],
-    "priority": "High",
+    "priority": "high",
     "role": "admin",
     "dependencies": [
-      "NEXCC-1-SCE-004-adminlogin_TC-001_Positive",
-      "NEXCC-1-SCE-003-salecreation_TC-001_Positive"
+      "nexcc-1-sce-004-adminlogin_tc-001_positive",
+      "nexcc-1-sce-003-salecreation_tc-001_positive"
     ],
     "gherkin": [
-      "Given I have a valid admin token and a valid saleId",
-      "When I POST /api/sales-commissions/{saleId}/process with the token in the Authorization header",
-      "Then I receive a 200 OK response with a success flag set to true, a commission id, and the commission status is 'calculated'"
+      "given i have a valid admin token and a valid saleid",
+      "when i post /api/sales-commissions/{saleid}/process with the token in the authorization header",
+      "then i receive a 200 ok response with a success flag set to true, a commission id, and the commission status is 'calculated'"
     ]
   },
   {
-    "testCaseId": "NEXCC-1-SCE-006-commissionapproval_TC-001_Positive",
-    "requirementId": "NEXCC-1-SCE-006-commissionapproval",
-    "jiraid": "NEXCC-1",
-    "module": "Commissions",
-    "type": "Positive",
+    "testcaseid": "nexcc-1-sce-006-commissionapproval_tc-001_positive",
+    "requirementid": "nexcc-1-sce-006-commissionapproval",
+    "jiraid": "nexcc-1",
+    "module": "commissions",
+    "type": "positive",
     "tags": [
-      "API",
-      "Positive"
+      "api",
+      "positive"
     ],
-    "priority": "High",
+    "priority": "high",
     "role": "admin",
     "dependencies": [
-      "NEXCC-1-SCE-004-adminlogin_TC-001_Positive",
-      "NEXCC-1-SCE-005-commissionprocessing_TC-001_Positive"
+      "nexcc-1-sce-004-adminlogin_tc-001_positive",
+      "nexcc-1-sce-005-commissionprocessing_tc-001_positive"
     ],
     "gherkin": [
-      "Given I have a valid admin token and a valid commissionId",
-      "When I PUT /api/commissions/{commissionId}/status with the status set to 'approved' and the token in the Authorization header",
-      "Then I receive a 200 OK response and the commission status is updated to 'approved'"
+      "given i have a valid admin token and a valid commissionid",
+      "when i put /api/commissions/{commissionid}/status with the status set to 'approved' and the token in the authorization header",
+      "then i receive a 200 ok response and the commission status is updated to 'approved'"
     ]
   },
   {
-    "testCaseId": "NEXCC-1-SCE-007-agentcommissionvalidation_TC-001_Positive",
-    "requirementId": "NEXCC-1-SCE-007-agentcommissionvalidation",
-    "jiraid": "NEXCC-1",
-    "module": "Commissions",
-    "type": "Positive",
+    "testcaseid": "nexcc-1-sce-007-agentcommissionvalidation_tc-001_positive",
+    "requirementid": "nexcc-1-sce-007-agentcommissionvalidation",
+    "jiraid": "nexcc-1",
+    "module": "commissions",
+    "type": "positive",
     "tags": [
-      "API",
-      "Positive"
+      "api",
+      "positive"
     ],
-    "priority": "High",
+    "priority": "high",
     "role": "agent",
     "dependencies": [
-      "NEXCC-1-SCE-001-agentlogin_TC-001_Positive",
-      "NEXCC-1-SCE-006-commissionapproval_TC-001_Positive"
+      "nexcc-1-sce-001-agentlogin_tc-001_positive",
+      "nexcc-1-sce-006-commissionapproval_tc-001_positive"
     ],
     "gherkin": [
-      "Given I have a valid agent token",
-      "When I GET /api/commissions with the token in the Authorization header",
-      "Then I receive a 200 OK response and can see the approved commission and validate the commission amount for the product sold"
+      "given i have a valid agent token",
+      "when i get /api/commissions with the token in the authorization header",
+      "then i receive a 200 ok response and can see the approved commission and validate the commission amount for the product sold"
     ]
   }
 ]
-```
